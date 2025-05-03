@@ -1,0 +1,63 @@
+Image Kullanımı ?
+
+Next.js'de next/image bileşeni, optimize edilmiş görsel kullanımı için özel olarak geliştirilmiştir.
+Görselleri otomatik olarak lazy load, responsive, WebP gibi formatlara dönüştürerek performansını arttırır.
+
+✅ 1. Kurulum (Next.js 13+ için dahili)
+next/image zaten Next.js ile birlikte gelir, ayrıca yüklemene gerek yoktur.
+
+✅ 2. Basit Kullanım
+import Image from "next/image";
+
+export default function MyComponent() {
+  return (
+    <Image
+      src="/images/logo.png"   // public klasörü kök olarak alır
+      alt="Logo"
+      width={200}
+      height={100}
+    />
+  );
+}
+
+public/images/logo.png konumunda bir dosya olmalı.
+
+✅ 3. Remote Görsel Kullanımı
+Eğer dış bir URL'den resim yüklenecekse next.config.js içinde alan adı tanımlamalısın:
+
+// next.config.js
+module.exports = {
+  images: {
+    domains: ['example.com'],
+  },
+}
+
+Kullanımı:
+<Image
+  src="https://example.com/image.jpg"
+  alt="External Image"
+  width={500}
+  height={300}
+/>
+
+✅ 4. Responsive Görseller
+<Image
+  src="/images/photo.jpg"
+  alt="Photo"
+  fill
+  style={{ objectFit: "cover" }}
+/>
+
+Image bileşenini kullanırken bazı zorunlu ve isteğe bağlı proplar vardır.
+Özellikle width, height veya fill gibi boyut belirten proplar zorunludur.
+
+src: zorunlu
+alt: zorunlu
+width + height: (ya bu ya da fill)
+fill: alternatif
+
+Boyutlandırma olarak mutlaka width + height veya fill kullanmamız gerekmektedir.
+
+NOT: fill kullanıyorsan, kapsayıcı position: relative olmalı.
+Image ise objectFit: cover olmalı.
+

@@ -1,0 +1,47 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr min(960px 90%) 1fr;
+    grid-template-rows: 72px minmax(calc(100vh - 144px), auto) 72px;
+    padding: 0px 250px;
+}
+
+/* .container>* {
+    grid-column: 2;
+} */
+
+.blogsContainer>*:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+.loaderContainer {
+    position: fixed; /* Sayfaya sabitlenir */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* diğer içeriklerin üstünde olsun */
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
