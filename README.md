@@ -3,7 +3,7 @@
 <hr>
 
 ## 📸 Ekran Görüntüleri
-![1](/1.JPG)
-![2](/2.JPG)
-![3](/3.JPG)
-![4](/4.JPG)
+![1](/public/1.JPG)
+![2](/public/2.JPG)
+![3](/public/3.JPG)
+![4](/public/4.JPG)
